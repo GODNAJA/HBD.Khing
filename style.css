@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+body {
+  background-color: #1e1934;
+}
+
+/* ===== ข้อความ ===== */
+h1 {
+  position: fixed;
+  margin: 0 auto;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  width: 12em;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 400;
+  font-family: "Itim", cursive;
+  letter-spacing: 0.1em;
+  color: white;
+  text-shadow: 0 0 20px black;
+  opacity: 0.8;
+}
+
+
+
+
+.heart-svg {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+
+  animation: heartBeat 1.5s infinite;
+
+  filter: drop-shadow(0 0 25px rgba(255,105,180,0.8));
+  z-index: 20;
+}
+/* ===== แสงเทียน ===== */
+#glow {
+  position: absolute;
+  left: calc(50% - .1em);
+  bottom: calc(35% + 9em);
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 100%;
+  opacity: 0.15;
+}
+
+/* ===== เทียน ===== */
+#candle {
+  position: absolute;
+  left: calc(50% - .75em);
+  bottom: 35%;
+  width: 1.5em;
+  height: 10em;
+  overflow: hidden;
+}
+
+#candle::before {
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  content: "";
+  width: 84%;
+  height: 80%;
+  background: linear-gradient(whitesmoke 0, #1e1934 125%);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  border: 1px solid #333;
+}
+
+/* ===== ด้านบนเทียน ===== */
+#top {
+  position: absolute;
+  width: 100%;
+  height: 2em;
+}
+
+#top #knot {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - .05em);
+  height: 0.5em;
+  width: 0.1em;
+  background-color: #0f3146;
+}
+
+/* ===== ควัน ===== */
+#top .smoke {
+  position: absolute;
+  opacity: 0;
+  border-radius: 100%;
+}
+
+#top .smoke:nth-child(1) {
+  bottom: 0.1em;
+  left: calc(50% - .5em);
+  height: 0.5em;
+  width: 0.5em;
+  background-color: silver;
+}
+
+#top .smoke:nth-child(2) {
+  bottom: 0.6em;
+  left: 50%;
+  height: 0.6em;
+  width: 0.6em;
+  background-color: lightgray;
+  animation-delay: 0.2s;
+}
+
+#top .smoke:nth-child(3) {
+  bottom: 1.1em;
+  left: 20%;
+  height: 0.3em;
+  width: 0.3em;
+  background-color: whitesmoke;
+  animation-delay: 0.3s;
+}
+
+/* ===== เปลวไฟ ===== */
+#top #flame {
+  position: absolute;
+  bottom: 0.15em;
+  width: 1.5em;
+  height: 1.6em;
+  background-color: #ffee86;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 0.1em #ffee86;
+  transform: rotateY(30deg);
+  cursor: pointer;
+}
+
+#top #flame::after {
+  position: absolute;
+  content: "";
+  width: 0.7em;
+  height: 0.9em;
+  bottom: 10%;
+  left: calc(50% - .35em);
+  background-color: #ff3200;
+  border-radius: 100%;
+  animation: burnInner 1.5s ease-in-out infinite;
+}
+
+#top #flame:hover {
+  background-color: yellow;
+}
+
+#top #flame:hover::after {
+  background-color: red;
+}
+
+/* ===== Animation ===== */
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 1.5em 2.2em rgba(255,246,162,.75); }
+  50% { box-shadow: 0 0 1.5em 2em rgba(255,246,162,.6); }
+}
+
+@keyframes burn {
+  0%,100% { height: 1.7em; transform: rotateY(30deg); }
+  50% { height: 1.3em; transform: rotateY(0deg); opacity: .9; }
+}
+
+@keyframes burnInner {
+  0%,100% { height: .9em; transform: rotateX(0); }
+  50% { height: .8em; transform: rotateX(30deg); }
+}
+
+@keyframes puff {
+  100% { transform: rotateY(-30deg); opacity: 0; }
+}
+
+@keyframes puff-bubble {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(.8); }
+}
+@keyframes heartBeat {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  25% {
+    transform: translateX(-50%) scale(1.08);
+  }
+  40% {
+    transform: translateX(-50%) scale(1);
+  }
+  60% {
+    transform: translateX(-50%) scale(1.12);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+.floating-heart {
+    position: fixed;
+    font-size: 24px;
+    color: pink;
+    animation: floatUp 4s linear forwards;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5);
+        opacity: 0;
+    }
+}
+.glow { animation: glow 3s ease-in-out infinite; }
+.burn { animation: burn 1.5s ease-in-out infinite; }
+.puff { animation: puff .3s ease-in-out forwards; }
+.puff-bubble { animation: puff-bubble .75s ease-in-out forwards; }
+
+/* ===== ลายเทียน ===== */
+.stripe {
+  position: absolute;
+  left: -0.25em;
+  width: 2em;
+  height: 0.25em;
+  background-color: #ff4b6f;
+  transform: rotate(25deg);
+  border-radius: 100%;
+  box-shadow: 1px 1px 0 1px rgba(0,0,0,.25);
+}
+
+.stripe:nth-child(1){ top:2.7em; opacity:1.4;}
+.stripe:nth-child(2){ top:4.2em; opacity:.9;}
+.stripe:nth-child(3){ top:5.7em; opacity:.73;}
+.stripe:nth-child(4){ top:7.2em; opacity:.65;}
+.stripe:nth-child(5){ top:8.7em; opacity:.6;}

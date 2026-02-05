@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khing Birthday Rak Khing</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Fly Bats logo.png">
+</head>
+
+<body>
+
+  <!-- รูปหัวใจ -->
+  <svg class="heart-svg" viewBox="0 0 512 512">
+    <defs>
+      <clipPath id="heartClip">
+        <path d="
+          M256 464
+          L232 443
+          C118 333 48 270 48 176
+          C48 106 106 48 176 48
+          C216 48 248 72 256 88
+          C264 72 296 48 336 48
+          C406 48 464 106 464 176
+          C464 270 394 333 280 443
+          L256 464 Z
+        "/>
+      </clipPath>
+    </defs>
+
+    <image
+      href="khing.jpg"
+      width="512"
+      height="512"
+      clip-path="url(#heartClip)"
+      preserveAspectRatio="xMidYMid slice"
+    />
+  </svg>
+
+  <h1>เป่าเทียน</h1>
+
+  <div class="glow" id="glow"></div>
+
+  <div id="candle">
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+
+    <div id="top">
+      <div class="smoke"></div>
+      <div class="smoke"></div>
+      <div class="smoke"></div>
+      <div id="knot"></div>
+      <div class="burn" id="flame"></div>
+    </div>
+  </div>
+
+  <!-- เพลง -->
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- โหลด jQuery ก่อน -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- โหลด JS -->
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
